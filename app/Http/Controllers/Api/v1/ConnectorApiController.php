@@ -24,12 +24,14 @@ class ConnectorApiController extends Controller
             "ClientToken" => $clientToken,
             "AccessToken" => $accessToken,
             "Client"      => $client,
-            "Emails"=> [
+            "Emails"=>
+            [
                 "john@doe.com"
             ],
-            "Limitation"=>[
-                "Cursor"=> "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-                "Count"=> 500
+            "Limitation"=>
+            [
+                "Cursor"  => "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+                "Count"   => 500
             ]
          ]);
 
@@ -56,6 +58,7 @@ class ConnectorApiController extends Controller
             $customers->Occupation = $data['Occupation'];
             $customers->Email = $data['Email'];
             $customers->Phone = $data['Phone'];
+            $customers->Passport = implode(',',$data['Passport']);
             $customers->TaxIdentificationNumber = $data['TaxIdentificationNumber'];
             $customers->AccountingCode = $data['AccountingCode'];
             $customers->LoyaltyCode = $data['LoyaltyCode'];
@@ -69,8 +72,8 @@ class ConnectorApiController extends Controller
             $customers->ActivityState = $data['ActivityState'];
             
             $customers->save();
+            }
         }
-    }
         dd($jsonData);
     }
 
