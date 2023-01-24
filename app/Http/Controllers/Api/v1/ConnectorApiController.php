@@ -24,18 +24,12 @@ class ConnectorApiController extends Controller
             "ClientToken" => $clientToken,
             "AccessToken" => $accessToken,
             "Client"      => $client,
-            "Extent" => [
-                "Customers" => "true",
-                "Documents" => "true",
-                "Addresses" => "false"
+            "Emails"=> [
+                "john@doe.com"
             ],
-            "UpdatedUtc" => [
-                "StartUtc" => "2019-12-10T00:00:00Z",
-                "EndUtc"   => "2020-01-17T00:00:00Z"
-            ],
-            "Limitation" => [
-                "Cursor" =>   "e7f26210-10e7-462e-9da8-ae8300be8ab7",
-                "Count"  =>   1000
+            "Limitation"=>[
+                "Cursor"=> "e7f26210-10e7-462e-9da8-ae8300be8ab7",
+                "Count"=> 500
             ]
          ]);
 
@@ -46,10 +40,34 @@ class ConnectorApiController extends Controller
             $customers = new Customer();
             $customers->CustomerId = $data['Id'];
             $customers->Number = $data['Number'];
+            $customers->Title = $data['Title'];
+            $customers->Sex = $data['Sex'];
+            $customers->Gender = $data['Gender'];
             $customers->FirstName = $data['FirstName'];
             $customers->LastName = $data['LastName'];
+            $customers->SecondLastName = $data['SecondLastName'];
+            $customers->NationalityCode = $data['NationalityCode'];
+            $customers->LanguageCode = $data['LanguageCode'];
+            $customers->BirthDate = $data['BirthDate'];
+            $customers->BirthPlace = $data['BirthPlace'];
+            $customers->CitizenNumber = $data['CitizenNumber'];
+            $customers->MotherName = $data['MotherName'];
+            $customers->FatherName = $data['FatherName'];
+            $customers->Occupation = $data['Occupation'];
             $customers->Email = $data['Email'];
+            $customers->Phone = $data['Phone'];
+            $customers->TaxIdentificationNumber = $data['TaxIdentificationNumber'];
+            $customers->AccountingCode = $data['AccountingCode'];
+            $customers->LoyaltyCode = $data['LoyaltyCode'];
+            $customers->BillingCode = $data['BillingCode'];
+            $customers->Notes = $data['Notes'];
+            $customers->CarRegistrationNumber = $data['CarRegistrationNumber'];
+            $customers->ItalianDestinationCode = $data['ItalianDestinationCode'];
+            $customers->ItalianFiscalCode = $data['ItalianFiscalCode'];
+            $customers->CompanyId = $data['CompanyId'];
+            $customers->MergeTargetId = $data['MergeTargetId'];
             $customers->ActivityState = $data['ActivityState'];
+            
             $customers->save();
         }
     }
